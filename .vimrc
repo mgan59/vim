@@ -20,7 +20,6 @@ Bundle 'skammer/vim-css-color'
 Bundle 'tpope/vim-surround'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
 Bundle 'vim-scripts/taglist.vim'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
@@ -35,26 +34,10 @@ Bundle 'Lokaltog/vim-easymotion'
 filetype plugin indent on     " required!
 " END VUNDLE CONFIG
 
-" disable active mode that freaks out when you try to save a file with syntax errors
-let g:syntastic_mode_map = { 'mode': 'passive',
-                           \ 'active_filetypes': [],
-                           \ 'passive_filetypes': [] }
-
-" automatically open the error window when there are errors and close it when there are none
-let g:syntastic_auto_loc_list=1
-
 " Only reload the markdown in the browser on save / a while after leaving
 " insert mode
 let g:instant_markdown_slow = 1
 filetype plugin on
-
-
-" ignore syntastic errors temporarily
-map \t :SyntasticToggleMode<CR> :SyntasticToggleMode<CR>
-
-" disable YouCompleteMe default mapping for \d and make our shortcut for Gdiff
-let g:ycm_key_detailed_diagnostics = ''
-noremap \d :Gdiff<CR>
 
 " disable gitgutter by default and map \f to toggle it
 let g:gitgutter_enabled = 0
@@ -69,13 +52,6 @@ noremap \q :set invwrap<CR>
 " shortcut for git status via fugitive
 noremap \s :Gstatus<CR>
 noremap \a :Gwrite<CR>
-
-" Make it so :Ggrep automatically opens the quickfix window when it's done
-autocmd QuickFixCmdPost *grep* call QuickFixFullWidth()
-
-function! QuickFixFullWidth()
-    botright cwindow
-endfunction
 
 " set t_Co=256
 syntax on
@@ -101,7 +77,8 @@ set foldnestmax=10
 set nofoldenable
 set foldlevel=1
 set hidden
-colorscheme danielcolor
+colorscheme Tomorrow-Night-Bright
+
 let NERDTreeIgnore = ['\.pyc$']
 autocmd  BufRead,BufNewFile *.html setfiletype htmldjango
 highlight Normal ctermbg=None
@@ -126,9 +103,9 @@ nmap j gj
 nmap k gk
 
 " hide macvim toolbar
-if has("gui_running")
-    set guioptions=egmrt
-endif
+"if has("gui_running")
+"    set guioptions=egmrt
+"endif
 
 " in ctrlp, set working directory to closest to .git
 let g:ctrlp_working_path_mode=2
@@ -154,17 +131,6 @@ let Tlist_Enable_Fold_Column=0
 highlight MyTagListFileName guifg=#00d2ff ctermfg=blue
 highlight MyTagListTitle guifg=#ff0086 gui=bold ctermfg=red
 map ) :TlistToggle<CR>
-
-" Quick-add debug statements by pressing ctrl+i
-nnoremap <c-i> :call InsertDebugTrace()<CR>
-function! InsertDebugTrace()
-    if (&ft == 'python')
-        normal! Oimport ipdb; ipdb.set_trace()
-    elseif (&ft == 'javascript')
-        normal! Odebugger;
-    endif
-    :w
-endfunction
 
 " To refresh syntax highlighting try scrolling around a little and then :syn sync fromstart
 
