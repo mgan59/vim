@@ -8,7 +8,7 @@ To set up on a new machine:
 2. `git init`
 3. `git remote add origin git@github.com:mcraft59/vim.git`
 4. `git pull origin master`
-5. `SymLink or copy .vimrc into ~/ so that it is loaded`
+5. SymLink `ln -s ......` or copy .vimrc `cp ~/.vim/.vimrc ../.vimrc`
 6. Launch vim and run `:BundleInstall`
 
 Compile YCM using instructions @ https://github.com/Valloric/YouCompleteMe
