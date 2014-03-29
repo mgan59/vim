@@ -8,7 +8,11 @@ To set up on a new machine:
 2. `git init`
 3. `git remote add origin git@github.com:mcraft59/vim.git`
 4. `git pull origin master`
-5. SymLink `ln -s ......` or copy .vimrc `cp ~/.vim/.vimrc ../.vimrc`
-6. Launch vim and run `:BundleInstall`
+5. Clone the vundle project (submodule) `git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle`
+6a. SymLink `ln -s ~/.vim/.vimrc ~/.vimrc`
+6b. Or copy .vimrc `cp ~/.vim/.vimrc ../.vimrc`
+7. Launch vim and run `:BundleInstall`
+
+View the [macosx instructions](configureMacVim.md) about installing MacVim using brew
 
 Compile YCM using instructions @ https://github.com/Valloric/YouCompleteMe
