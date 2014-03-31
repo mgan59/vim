@@ -30,6 +30,7 @@ Bundle 'kwbdi.vim'
 Bundle 'tpope/vim-markdown'
 Bundle 'suan/vim-instant-markdown'
 Bundle 'Lokaltog/vim-easymotion'
+Bundle 'mustache/vim-mustache-handlbars'
 
 filetype plugin indent on     " required!
 " END VUNDLE CONFIG
