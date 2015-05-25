@@ -110,6 +110,11 @@ nmap k gk
 
 " in ctrlp, set working directory to closest to .git
 let g:ctrlp_working_path_mode=2
+" ignore some basic stuff, cuts down on files included (faster)
+let g:ctrlp_custom_ignore = {
+  \ 'dir':  '\v[\/]\.(git|hg|svn)$',
+  \ 'file': '\v\.(exe|so|dll)$'
+  \ }
 
 " map some useful nerdtree commands
 noremap <c-n> :NERDTreeToggle<CR>
