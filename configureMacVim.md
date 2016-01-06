@@ -4,7 +4,7 @@
 
 Install brew and get Xcode setup, then run
 
-    brew install macvim --override-system-vim
+    brew install macvim --with-override-system-vim
     # put mac-vim icon into app folder
     brew linkapps --system
 
